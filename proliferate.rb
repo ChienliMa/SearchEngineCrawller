@@ -4,7 +4,7 @@ require './parser/'
 
 def ProliLoop( key, file, searched, not_searched, num )
     """
-    Iteratly proliferate keys
+    Iteratly? proliferate keys
     """
     html = RequestHTML( key, 1 )
     relevant_result = GetRelevantResult( html )
@@ -34,7 +34,6 @@ def ProliLoop( key, file, searched, not_searched, num )
     p "Results left:" + num.to_s()
     p "next search: " + key
 
-
     # iteration( not recurse )
     ProliLoop( key, file, searched, not_searched, num )
 end
@@ -54,7 +53,6 @@ def Prolifer( key, num, file_name )
     not_searched = nil
 end
 
-# 如果hash那两个做全局变量的话应该可以减少不少递归是堆栈的空间。恩
 key = "克林顿"
 num = 100000
 file_name = "Bill Clinton.txt"
