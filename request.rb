@@ -1,8 +1,12 @@
 require 'socket'
 
-def RequestHTML( keyword, page )
+def RequestHTML( keyword, page = 1 )
     """
-    @Params: keyword, page(start from 1)
+    Sent HTTP request to baidu and grab the respond html.
+    : Param keyword: Something you want to search
+    : Type keyword : String
+    : Param page : Which page you are requesting, default is 1 
+    : Type page : Integer
     """
     p "Searching: "+ keyword
     # construct a http request
@@ -23,3 +27,12 @@ def RequestHTML( keyword, page )
     socket.close
     return html
 end
+
+=begin
+Example of how to use it:
+{
+    key = "颗粒大小"
+    page = 1
+    RequsetHTML( key, page )  
+}
+=end

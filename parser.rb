@@ -4,7 +4,12 @@ require './request'
 
 def GetRelevantResult( html )
     """
-    return empty array if no relevant result
+    : Param html : HTML Doc of the page you want to parse,
+    currently we can only parse the result of baidu
+    : Type html : String
+
+    @Return:
+    Array of relecant results
     """
     page = Nokogiri::HTML( html )
     rs = []
@@ -22,10 +27,12 @@ end
 
 def GetSearchResult( html )
     """
-    @Params : html
-    @Returns: array of titles and urls, corresponding
-    only return big title, not (little guanwang)
-    return c-abstarct class together
+    : Param html : HTML Doc of the page you want to parse,
+    currently we can only parse the result of baidu
+    : Type html : String
+
+    @Return : 
+    Two arrays of strings : titles and urls 两边是对应的，恩
     """
     page = Nokogiri::HTML( html)
     titles = [ ]
@@ -56,10 +63,3 @@ def GetSearchResult( html )
 
     return titles, urls
 end
-
-html = open("icebucket.html")
-p GetSearchResult(html)
-
-
-
-

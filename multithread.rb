@@ -4,6 +4,8 @@ require "thread"
 
 def FormatWrite(  key, titles, urls, file )
     """
+    Write sth. into some file.
+    This is rubbish
     """
     file.puts( "KEY:"+key+"\n")
 
@@ -15,7 +17,10 @@ def FormatWrite(  key, titles, urls, file )
 end
 
 
-def FetchResult( key, file)
+def FetchResult( key, file )
+    """
+    As you can see
+    """
     html = RequestHTML( key, 1 )
     titles, urls = GetSearchResult( html )
     FormatWrite( key, titles, urls, file )
@@ -23,6 +28,7 @@ end
 
 def WriteOneResult( file_out, lock_out, key, titles, urls )
     """
+    As you can see. ( with lock here )
     """
     lock_out.lock()
     FormatWrite( key, titles, urls, file_out )  
@@ -31,6 +37,7 @@ end
 
 def FetchOneKey( file_in, lock_in)
     """
+    As you can see.
     """
     lock_in.lock()
     key = file_in.gets()
@@ -45,7 +52,9 @@ end
 
 def SingleThreadSearcher( file_in, file_out, lock_in, lock_out )
     """
-    not used as a function
+    : Auxilary method : 
+    Fetch one key from file and write relevant key 
+    to another file.  Execute until we reach the end of input file.
     """
     key = FetchOneKey( file_in, lock_in )
 
@@ -60,8 +69,10 @@ end # SingleThreadSearch
 
 def SearchCocurrently( name_in, name_out, thread_num )
     """
-    note: here,file is filename
-    work as its name
+    Cocurrently fetch search result from baidu.
+    : Param name_in : Name of file which contains keys
+    : Param name_out : Name of file to whom this method write
+    : Param thead_num : number of thread work corruently
     """
     file_in = open( name_in )
     file_out = open( name_out, "w" )
@@ -83,4 +94,7 @@ def SearchCocurrently( name_in, name_out, thread_num )
 
 end
 
+=begin
+Example of how to use this:
 SearchCocurrently( "elong_relevance.txt", "elongsearchresult.txt", 10)
+=end
