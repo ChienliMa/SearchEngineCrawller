@@ -77,3 +77,8 @@ Example of how to use:
     2.运行一段时间后无法获得相应，不知道是不是百度的问题，
         或者是程序问题（毕竟是递归）。目前最多一次获得了3000多关键词
 =end
+
+key = "克顿"
+    num = 100
+    file_name = "Bill Clinton.txt"
+    Prolifer( key, num, file_name )

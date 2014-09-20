@@ -57,7 +57,7 @@ def GetSearchResult( html )
                 urls += [ url ]
             end
         rescue  Exception
-            p "found exception,' maybe there are fewer result than we except"
+            p "miss one result" 
         end
     }
 
